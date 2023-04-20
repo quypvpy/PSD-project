@@ -1,0 +1,820 @@
+// ..............................Variables ...............................................
+
+@import './mixins.scss';
+
+$primary-color: #232323;
+$secondary-color: #b8b8b8;
+$pink-color: #b05d5d;
+$white-color: #ffffff;
+$panel-color: #d9eaea;
+$gallery-color: #fafafa;
+$header-top-color: #ffe8e8;
+$tooltip-collections: #ef6454;
+$tooltip-demo: #06bfe2;
+$tooltip-instagram: #ffbb49;
+
+$primary-font: 'Poppins', sans-serif;
+
+$wrapper: 1880px;
+$container: 1170px;
+
+// ..............................structures ...............................................
+
+html {
+  font-size: 62.5%;
+}
+a {
+  text-decoration: none;
+}
+p {
+  display: inline-block;
+}
+img {
+  display: block;
+  max-width: 100%;
+}
+ul {
+  padding: unset;
+}
+html {
+  overflow-x: hidden;
+}
+body {
+  font-family: $primary-font;
+  line-height: 1;
+  color: $primary-color;
+  font-size: 1.2rem;
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.wrapper {
+  max-width: $wrapper;
+  margin: 0 auto;
+}
+.container {
+  max-width: $container + 30px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+// ..............................header start ...............................................
+.header {
+  min-height: 900px;
+
+  &-top {
+    // position: fixed;
+    min-height: 3.5rem;
+    background-color: $header-top-color;
+    // position: absolute;
+    min-width: 1900px;
+    margin-left: -20rem;
+    color: $pink-color;
+    font-weight: 400;
+  }
+  &-top p {
+    margin-right: 10rem;
+  }
+  &-top span {
+    font-weight: bold;
+  }
+  &-logo {
+    margin-top: 2.5rem;
+    min-height: 10rem;
+    background-color: $white-color;
+
+    & .container {
+      @include flexbox(baseline);
+      position: relative;
+    }
+
+    &-left {
+      font-size: 5.8rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    & .menu-respontive {
+      display: none;
+    }
+    &-right-text {
+      text-transform: uppercase;
+      font-weight: 600;
+      position: absolute;
+      top: 0.5rem;
+      right: 6rem;
+    }
+    &-right-link ul {
+      @include flexbox(flex-end);
+      font-weight: 400;
+    }
+    &-right-link ul li {
+      @include flexbox(center);
+      cursor: pointer;
+      margin-right: 2.5rem;
+    }
+    &-right-link .or {
+      padding: 0 0.5rem;
+    }
+    &-right-link ul li i {
+      margin-right: 1rem;
+      font-size: 2rem;
+    }
+  }
+  &-logo .border {
+    position: relative;
+  }
+  &-logo .border::after {
+    position: absolute;
+    left: 0;
+    top: 1.8rem;
+    content: '';
+    width: 100%;
+    height: 7px;
+    background-color: $primary-color;
+  }
+
+  &-menu {
+    min-height: 4.5rem;
+    background-color: $primary-color;
+  }
+
+  &-menu .container {
+    min-height: 4.5rem;
+    display: flex;
+    align-items: center;
+  }
+  &-menu .container ul {
+    display: flex;
+    padding: unset;
+  }
+  .collections,
+  .demo,
+  .instagram {
+    position: relative;
+  }
+
+  .tooltip-wrapper {
+    position: absolute;
+    top: -5rem;
+    right: -3rem;
+    @include flexbox(center, center);
+    flex-direction: column;
+    text-transform: none;
+  }
+  .tooltip {
+    width: 7rem;
+    height: 3rem;
+    text-align: center;
+    @include flexbox(center, center);
+  }
+  .arrow {
+    font-size: 3rem;
+    margin-top: -1.3rem;
+  }
+  .tooltip-collections {
+    background-color: $tooltip-collections;
+  }
+  .arrow-collections {
+    color: $tooltip-collections;
+  }
+  .tooltip-demo {
+    background-color: $tooltip-demo;
+  }
+  .arrow-demo {
+    color: $tooltip-demo;
+  }
+  .tooltip-instagram {
+    background-color: $tooltip-instagram;
+  }
+  .arrow-instagram {
+    color: $tooltip-instagram;
+  }
+
+  &-menu .container ul li {
+    color: $white-color;
+    cursor: pointer;
+    list-style-type: none;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    margin-right: 4rem;
+  }
+  &-panel {
+    min-height: 72rem;
+    background: url('../images/panel.jpg') no-repeat center / cover;
+    position: relative;
+
+    & .text {
+      margin-left: 2.5rem;
+      max-width: 400px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+
+      text-align: center;
+    }
+    & .title {
+      font-size: 4rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    & .line {
+      width: 4rem;
+      height: 2px;
+      background-color: $primary-color;
+      margin: 2.5rem auto;
+    }
+    & .description {
+      font-weight: 400;
+      margin-bottom: 4rem;
+      line-height: 2;
+    }
+    & .button {
+      text-transform: uppercase;
+      cursor: pointer;
+      padding: 1.5rem 5rem;
+      background-color: $primary-color;
+      color: $white-color;
+    }
+  }
+  & .list-icon {
+    display: none;
+    font-size: 3rem;
+    text-align: right;
+    margin: 3rem 0;
+  }
+  & .list-icon i {
+    margin-left: 2rem;
+  }
+}
+@media screen and (max-width: 1279px) {
+  .header {
+    min-height: unset;
+  }
+  .header-panel {
+    min-height: 60rem;
+  }
+}
+@media screen and (max-width: 1023px) {
+  .header .list-icon {
+    display: block;
+  }
+
+  .header-logo-right-text {
+    display: none;
+  }
+  .header-panel {
+    min-height: 45rem;
+  }
+  .header-panel .text {
+    max-width: 330px;
+  }
+  .header-panel .title {
+    font-size: 3rem;
+  }
+
+  .header-menu {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background-color: white;
+    width: 300px;
+    z-index: 1;
+    transform: translateX(100%);
+    // ví dụ x bao nhiêu thì nó dời 100% vô trong.
+    transition: transform 0.25s ease-in;
+  }
+  .header-menu.is-expand {
+    transform: translateX(0);
+    // lúc ddaaud nó dời.. h thì mình để 0 là k dời.
+  }
+  .header-menu .container {
+    display: block;
+    padding: 0 3rem;
+  }
+
+  .header-menu .container ul {
+    display: block;
+  }
+  .header-menu .container ul li {
+    color: #000000;
+    margin-top: 2rem;
+    padding: 1rem;
+  }
+  .header-menu .container ul li:hover {
+    background-color: #13c89c;
+  }
+
+  .header-logo .container {
+    display: block;
+    padding: 0 5rem;
+    padding-top: 3.5rem;
+  }
+  .header-logo-right {
+    display: none;
+  }
+
+  .header-logo-left {
+    @include flexbox(center);
+  }
+  .header-logo .menu-respontive {
+    display: block;
+  }
+  .header .tooltip-wrapper {
+    top: -2rem;
+  }
+}
+@media screen and (max-width: 767px) {
+  .header-panel .text {
+    margin-left: unset;
+    max-width: 20rem;
+  }
+  .header-panel .title {
+    font-size: 2.4rem;
+  }
+  .header-logo .container {
+    padding: 0 3rem;
+  }
+  .header-panel .line {
+    margin: 1.5rem auto;
+  }
+  .header-panel .button {
+    padding: 1.2rem 3rem;
+  }
+
+  .header-logo-right-link ul li i {
+    display: none;
+  }
+  .header .tooltip-wrapper {
+    top: -2rem;
+    right: -3rem;
+  }
+}
+
+// ..............................header end ...............................................
+
+// ..............................arrivals start ...............................................
+.arrivals {
+  margin-top: 3rem;
+  margin-bottom: 6.5rem;
+
+  & .container {
+    display: flex;
+    gap: 3rem;
+    justify-content: space-between;
+
+    // & .image {
+    //   position: relative;
+    // }
+
+    & .image {
+      position: relative;
+      transition: all 0.3s linear;
+      transform: scale(1);
+    }
+    & .image:hover {
+      transform: scale(1.1);
+    }
+
+    & .image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    & .title {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%);
+      font-size: 1.6rem;
+      color: $white-color;
+      text-transform: uppercase;
+      z-index: 11;
+    }
+
+    & .cover {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      user-select: none;
+      z-index: 1111;
+      opacity: 0.4;
+      &:hover {
+        opacity: 0;
+      }
+    }
+
+    & .line {
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      background-color: $primary-color;
+      margin: 6.5rem auto;
+    }
+    & .custom {
+      width: 100%;
+      height: unset;
+      background-color: unset;
+      text-align: center;
+    }
+    & .text {
+      text-transform: uppercase;
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+    }
+    & .view {
+      display: inline-block;
+      padding-bottom: 2px;
+      border-bottom: 1px solid $primary-color;
+      font-weight: 400;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .arrivals .container {
+    display: block;
+    padding: 0 40px;
+  }
+  .arrivals .container .image {
+    margin-bottom: 12rem;
+  }
+
+  .arrivals .container .line {
+    margin: 4.5rem auto;
+  }
+}
+
+// ..............................arrivals end ...............................................
+
+// ..............................product start ...............................................
+.product {
+  margin-top: 14.5rem;
+  & .container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+
+  & .item img {
+    width: 27rem;
+    height: 36rem;
+    object-fit: cover;
+  }
+  & .title {
+    text-transform: uppercase;
+    color: #969696;
+    margin: 20px auto;
+  }
+  & .price {
+    margin: 20px auto;
+  }
+  & .item2 {
+    position: relative;
+
+    & .add-to-cart {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 80px;
+      background-color: $white-color;
+      @include flexbox(center, center);
+
+      & .button {
+        position: absolute;
+        bottom: 2rem;
+        background-color: transparent;
+        cursor: pointer;
+        text-transform: uppercase;
+        font-size: 1.4rem;
+        font-weight: 600;
+        width: 24rem;
+        height: 4.5rem;
+        border-width: 1px;
+      }
+    }
+  }
+  & .item3 {
+    position: relative;
+
+    & .submit {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 14.5rem;
+      background-color: $white-color;
+
+      & .wrapper-size {
+        text-align: center;
+      }
+      & .title-size {
+        margin: 20px 0;
+        margin-bottom: 0px;
+      }
+      & .title-size p {
+        display: inline;
+        font-weight: 600;
+      }
+      & .size {
+        text-align: center;
+        @include flexbox(center, center);
+      }
+      & .size ul {
+        display: flex;
+        padding: unset;
+      }
+      & .size ul li {
+        list-style-type: none;
+        margin-right: 2rem;
+        text-transform: uppercase;
+        font-size: 1.4rem;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      & .button {
+        position: absolute;
+        bottom: 2rem;
+        cursor: pointer;
+        margin-left: 2rem;
+        background-color: transparent;
+        text-transform: uppercase;
+        font-size: 1.4rem;
+        font-weight: 600;
+        width: 24rem;
+        height: 4.5rem;
+        border-width: 1px;
+      }
+    }
+  }
+  & .color ul {
+    display: flex;
+    gap: 2rem;
+    height: 2.3rem;
+  }
+  & .color ul li {
+    position: relative;
+    list-style-type: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: white;
+    z-index: 111;
+    border: 2px solid #e4e4e4;
+  }
+  & .color ul li .circle {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    bottom: 8.3%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  & .color ul li .circle-blue {
+    background-color: #4b6cc0;
+  }
+  & .color ul li .circle-grown {
+    background-color: #494949;
+  }
+  & .color ul li .circle-grey {
+    background-color: #e8e8e8;
+  }
+  & .color ul li .circle-black {
+    background-color: #000000;
+  }
+  & .color ul li .circle-green {
+    background-color: #13c89c;
+  }
+  & .color ul li .circle-yellow {
+    background-color: #fff100;
+  }
+  & .color ul li .circle-white {
+    background-color: #ffffff;
+  }
+  & .show-more {
+    text-align: center;
+    padding: unset;
+    margin-top: 6rem;
+
+    & .button-show {
+      @include button(30rem, 4.5rem, $primary-color, transparent);
+    }
+  }
+}
+@media screen and (max-width: 1023px) {
+  .product .item img {
+    width: 33rem;
+  }
+}
+@media screen and (max-width: 767px) {
+  .product .container {
+    display: block;
+  }
+  .product .item {
+    margin-bottom: 3rem;
+  }
+  .product .item img {
+    width: 20rem;
+    height: 30rem;
+    margin: auto;
+  }
+}
+
+// ..............................product end ...............................................
+
+// ..............................gallery start ...............................................
+.gallery {
+  margin-top: 7rem;
+  margin-bottom: 7rem;
+  min-height: 53rem;
+  background: $gallery-color;
+  text-align: center;
+
+  & .title {
+    text-transform: uppercase;
+    padding-top: 6rem;
+    margin-bottom: 2.5rem;
+    font-size: 2rem;
+    font-weight: 600;
+    & .icon-instagram {
+      margin-right: 1.5rem;
+      font-weight: bold;
+    }
+  }
+  & .description {
+    margin-bottom: 4rem;
+    font-weight: 400;
+  }
+  & .view-gallery {
+    margin-top: 3rem;
+  }
+  & .view-gallery button {
+    @include button(23rem, 4.5rem, $white-color, $primary-color);
+  }
+
+  & .container {
+    display: flex;
+    gap: 5px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  & .image {
+    position: relative;
+    transition: all 0.3s linear;
+    transform: scale(1);
+  }
+  & .image:hover {
+    transform: scale(1.1);
+  }
+  & .image .cover {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    user-select: none;
+    opacity: 0.4;
+    &:hover {
+      opacity: 0;
+    }
+  }
+}
+@media screen and (max-width: 767px) {
+  .gallery .container {
+    display: block;
+  }
+  .gallery .container img {
+    margin: auto;
+    margin-bottom: 5rem;
+  }
+}
+// ..............................gallery end ...............................................
+
+// ..............................footer start ...............................................
+
+.footer {
+  min-height: 46rem;
+  background-color: $primary-color;
+  color: $secondary-color;
+
+  &-top .container {
+    padding-top: 4rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    gap: 9.4rem;
+
+    & .title {
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 1.4rem;
+      color: $white-color;
+    }
+    & p {
+      font-weight: 400;
+      margin: unset;
+      margin-top: 2rem;
+      display: block;
+    }
+
+    & .form {
+      margin-top: 2rem;
+      display: flex;
+      gap: 1rem;
+
+      & input {
+        padding-left: 2rem;
+        box-sizing: border-box;
+        width: 29rem;
+        height: 4.5rem;
+      }
+      & button {
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 1.4rem;
+        width: 12.5rem;
+        height: 4.5rem;
+        cursor: pointer;
+      }
+    }
+
+    & .social {
+      display: flex;
+      justify-content: flex-start;
+      gap: 1.5rem;
+      margin-top: 3.5rem;
+      font-weight: bold;
+
+      & .link {
+        @include flexbox(center, center);
+        border-radius: 50%;
+        width: 3.5rem;
+        height: 3.5rem;
+        background-color: $white-color;
+        color: $primary-color;
+      }
+      & .link i {
+        font-weight: bold;
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  & .footer-bottom {
+    margin-top: 5rem;
+    border-top: 1px solid #383838;
+  }
+  & .footer-bottom .container {
+    padding: 3rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem;
+
+    & .left div {
+      margin-bottom: 2rem;
+    }
+  }
+}
+@media screen and (max-width: 1279px) {
+  .footer-top .container {
+    margin: 0 20rem;
+  }
+}
+@media screen and (max-width: 1023px) {
+  .footer-top .container {
+    margin: 0 6rem;
+  }
+}
+@media screen and (max-width: 767px) {
+  .footer-top .container .form {
+    display: block;
+  }
+  .footer-top .container .form input {
+    margin-bottom: 2rem;
+  }
+  .footer-top .container {
+    display: block;
+    margin: unset;
+    text-align: center;
+
+    & .column {
+      margin-bottom: 5rem;
+    }
+  }
+}
+
+// ..............................footer end ...............................................
